@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WhatsAppStatusDownloader</string>
+    <string name="title_pics">You have not watched any whatsapp status currently,Once you watch a whatsapp status,it will automatically show here for you to download</string>
+
+</resources>

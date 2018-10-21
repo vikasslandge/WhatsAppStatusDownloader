@@ -25,10 +25,8 @@ class MainActivity : AppCompatActivity() {
         //var glayout = GridLayoutManager(this,1)
         //rview.layoutManager = glayout
         rview.adapter = MyAdapter(this)
-      var  fullScreenInd = intent.getStringExtra("fullScreenIndicator")
 
-
-        cview!!.setOnClickListener {
+        /*cview!!.setOnClickListener {
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN)
             supportActionBar!!.hide()
@@ -38,12 +36,7 @@ class MainActivity : AppCompatActivity() {
             cview!!.adjustViewBounds = false
             cview!!.scaleType = ImageView.ScaleType.FIT_XY
 
-            if ("y" == fullScreenInd) {
-                intent.putExtra("fullScreenIndicator", "")
-            } else {
-                intent.putExtra("fullScreenIndicator", "y")
-            }
-            this@MainActivity.startActivity(intent)
-        }
+
+        }*/
     }
 }

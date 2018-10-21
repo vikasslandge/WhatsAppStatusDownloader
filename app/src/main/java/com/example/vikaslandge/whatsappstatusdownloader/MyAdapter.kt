@@ -5,6 +5,9 @@ import android.media.ThumbnailUtils
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.ImageView
+import com.example.vikaslandge.whatsappstatusdownloader.R.id.cview
 import java.io.File
 
 class MyAdapter: RecyclerView.Adapter<MyHolder> {
@@ -51,7 +54,10 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
         var b = BitmapFactory.decodeFile(f.path)
         var bmp= ThumbnailUtils.extractThumbnail(b,50,50 )
         holder.cView!!.setImageBitmap(b)
+        holder.cView!!.setOnClickListener {
+            
 
+        }
         holder.name!!.movementMethod
 
         holder.name!!.text=f.name
@@ -64,5 +70,5 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
 
         }
 
-}
+    }
 }

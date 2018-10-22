@@ -20,13 +20,14 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="0dp"
-            android:background="#060606"
+            android:background="#333232"
 
             android:src="@mipmap/ic_launcher_round" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#454444"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
@@ -44,7 +45,7 @@
                     android:lines="1"
                     android:scrollbars="vertical"
                     android:text="File Name"
-                    android:textColor="#FF0000"
+                    android:textColor="#60d3e7"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -54,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="File Size"
-                    android:textColor="#0000FF"
+                    android:textColor="#e4dfdf"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 

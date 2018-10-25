@@ -1,7 +1,9 @@
 package com.example.vikaslandge.whatsappstatusdownloader
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.media.ThumbnailUtils
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -52,10 +54,12 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
         var f: File = files!!.get(position)
 
         var b = BitmapFactory.decodeFile(f.path)
-        var bmp= ThumbnailUtils.extractThumbnail(b,50,50 )
-        holder.cView!!.setImageBitmap(b)
+        var bmp= ThumbnailUtils.extractThumbnail(b,150,150 )
+        holder.cView!!.setImageBitmap(bmp)
         holder.cView!!.setOnClickListener {
-            
+            var i = Intent( mActivity, FullScreenImageActivity::class.java)
+            i.putExtra("image_url",f.path)
+                mActivity!!.startActivity(i)
 
         }
         holder.name!!.movementMethod

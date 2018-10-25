@@ -11,8 +11,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.imagefullscreen.*
-import kotlinx.android.synthetic.main.indiview.*
+ import kotlinx.android.synthetic.main.indiview.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-         var lmanager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        rview.layoutManager = lmanager
-        //var glayout = GridLayoutManager(this,1)
-        //rview.layoutManager = glayout
+        // var lmanager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        //rview.layoutManager = lmanager
+        var glayout = GridLayoutManager(this,3)
+        rview.layoutManager = glayout
         rview.adapter = MyAdapter(this)
 
         /*cview!!.setOnClickListener {

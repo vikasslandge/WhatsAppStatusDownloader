@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FullScreenImageActivity"/>
+        <activity android:name=".FullScreenImageActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+        </activity>
     </application>
 
 </manifest>

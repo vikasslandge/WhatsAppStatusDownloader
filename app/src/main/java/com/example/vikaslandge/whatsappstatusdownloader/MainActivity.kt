@@ -1,19 +1,15 @@
 package com.example.vikaslandge.whatsappstatusdownloader
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.text.method.ScrollingMovementMethod
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
- import kotlinx.android.synthetic.main.indiview.*
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
+
+    var files:Array<File>?=null
+    var file:File?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +19,19 @@ class MainActivity : AppCompatActivity() {
         //rview.layoutManager = lmanager
         var glayout = GridLayoutManager(this,3)
         rview.layoutManager = glayout
-        rview.adapter = MyAdapter(this)
+
+        var path="storage/sdcarda/WhatsApp/Media/WhatsApp Images/"
+        file= File(path)
+
+        if(!file!!.exists()){
+
+            path="storage/emulated/0/WhatsApp/Media/"//.statuses/"
+            file= File(path)
+
+        }
+
+        files=file!!.listFiles()
+        rview.adapter = MyAdapter(this, files)
 
         /*cview!!.setOnClickListener {
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,

@@ -1,16 +1,16 @@
 package com.example.vikaslandge.whatsappstatusdownloader
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.media.ThumbnailUtils
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.ImageView
-import com.example.vikaslandge.whatsappstatusdownloader.R.id.cview
 import java.io.File
+import android.support.v4.view.ViewPager
+import java.security.AccessController.getContext
+
 
 class MyAdapter: RecyclerView.Adapter<MyHolder> {
 
@@ -18,20 +18,10 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
     var mActivity:MainActivity? = null
     var files:Array<File>?=null
     var file:File?=null
-    constructor(mActivity:MainActivity) {
+    constructor(mActivity:MainActivity, files: Array<File>?) {
         this.mActivity = mActivity
+        this.files = files
 
-        var path="storage/sdcarda/WhatsApp/Media/WhatsApp Images/"
-        file= File(path)
-
-        if(!file!!.exists()){
-
-            path="storage/emulated/0/WhatsApp/Media/.statuses/"
-            file= File(path)
-
-        }
-
-        files=file!!.listFiles()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
 
@@ -52,14 +42,22 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
 
         var f: File = files!!.get(position)
+        var arrayList =files!!.get(position)
+        var list : Array<String>
+        for
 
         var b = BitmapFactory.decodeFile(f.path)
         var bmp= ThumbnailUtils.extractThumbnail(b,150,150 )
         holder.cView!!.setImageBitmap(bmp)
         holder.cView!!.setOnClickListener {
-            var i = Intent( mActivity, FullScreenImageActivity::class.java)
-            i.putExtra("image_url",f.path)
-                mActivity!!.startActivity(i)
+            //var i = Intent( mActivity, FullScreenImageActivity::class.java)
+            //i.putExtra("image_url",f.path)
+              //  mActivity!!.startActivity(i)
+            val viewPager : ViewPager = ViewPager(mActivity!!)
+
+            if (viewPager != null) {
+                viewPager.adapter = CustomPagerAdapter(mActivity!!, list )
+            }
 
         }
         holder.name!!.movementMethod

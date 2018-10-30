@@ -42,22 +42,23 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
 
         var f: File = files!!.get(position)
-        var arrayList =files!!.get(position)
-        var list : Array<String>
-        for
+        var list: ArrayList<String>? = ArrayList()
+        for(i in 0..files!!.size-1){
+            list!!.add(files!!.get(i).path)
+        }
+                //list!!.addAll(listOf(files!![position]))
 
+        var p1 : Int
+        p1 = holder.adapterPosition
         var b = BitmapFactory.decodeFile(f.path)
         var bmp= ThumbnailUtils.extractThumbnail(b,150,150 )
         holder.cView!!.setImageBitmap(bmp)
         holder.cView!!.setOnClickListener {
-            //var i = Intent( mActivity, FullScreenImageActivity::class.java)
-            //i.putExtra("image_url",f.path)
-              //  mActivity!!.startActivity(i)
-            val viewPager : ViewPager = ViewPager(mActivity!!)
+            var i = Intent( mActivity, FullScreenImageActivity::class.java)
+            i.putExtra("image_url",list)
+            i.putExtra("position",p1)
+                mActivity!!.startActivity(i)
 
-            if (viewPager != null) {
-                viewPager.adapter = CustomPagerAdapter(mActivity!!, list )
-            }
 
         }
         holder.name!!.movementMethod

@@ -22,6 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.VideoBitmapDecoder
 import com.bumptech.glide.request.RequestOptions
+import com.github.chrisbanes.photoview.PhotoView
 
 
 class FullscreenImageAdapter :PagerAdapter{
@@ -45,11 +46,11 @@ class FullscreenImageAdapter :PagerAdapter{
 
       override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
-            var image : ImageView
+            var image : PhotoView
           inflater =context.getSystemService(Context.LAYOUT_INFLATER_SERVICE ) as LayoutInflater
           var view : View = inflater.inflate(R.layout.activity_full_screen_image,container ,false)
           image =view.findViewById(R.id.fullScreenImageView)
-          var video: VideoView = view.findViewById(R.id.videoview)
+         // var video: VideoView = view.findViewById(R.id.videoview)
           //image.setBackgroundResource(images)
           val options = BitmapFactory.Options()
           options.inPreferredConfig = Bitmap.Config.ARGB_8888
@@ -68,8 +69,8 @@ val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension
          // image.setImageBitmap(b)
 
 
-                Glide.with(context).load(images.get(position))
-                          .into(image)
+          Glide.with(context).load(images.get(position))
+                  .into(image)
 
           container.addView( view)
 

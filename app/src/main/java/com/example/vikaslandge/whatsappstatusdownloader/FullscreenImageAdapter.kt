@@ -23,6 +23,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.VideoBitmapDecoder
 import com.bumptech.glide.request.RequestOptions
 import com.github.chrisbanes.photoview.PhotoView
+import com.google.android.exoplayer2.util.MimeTypes
 
 
 class FullscreenImageAdapter :PagerAdapter{
@@ -67,11 +68,10 @@ val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension
           var b = BitmapFactory.decodeFile(images.get(position),options)
           //var bmp= ThumbnailUtils.extractThumbnail(b,, )
          // image.setImageBitmap(b)
-
-
-          Glide.with(context).load(images.get(position))
-                  .into(image)
-
+            if (mimeType=="image/jpeg") {
+                Glide.with(context).load(images.get(position))
+                        .into(image)
+            }
           container.addView( view)
 
         return view

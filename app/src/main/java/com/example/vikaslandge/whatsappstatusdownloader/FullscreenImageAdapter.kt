@@ -68,7 +68,9 @@ val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension
           var b = BitmapFactory.decodeFile(images.get(position),options)
           //var bmp= ThumbnailUtils.extractThumbnail(b,, )
          // image.setImageBitmap(b)
-            if (mimeType=="image/jpeg") {
+            if (mimeType=="video/mp4"){
+
+            }else{
                 Glide.with(context).load(images.get(position))
                         .into(image)
             }

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
 import android.support.v7.app.AppCompatActivity
+import com.google.android.exoplayer2.ExoPlayer
 import kotlinx.android.synthetic.main.slider.*
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -40,8 +41,8 @@ class FullScreenImageActivity : AppCompatActivity() {
                 .createMediaSource(uri)
 // Prepare the player with the source.
        player.prepare(videoSource)
-        player.setPlayWhenReady(true);
-
+        player.playWhenReady = false
+        player.
        // var  adapter : PagerAdapter = FullscreenImageAdapter(this, images)
 
         //viewPager.adapter= adapter

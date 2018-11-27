@@ -30,7 +30,7 @@ class FullScreenImageActivity : AppCompatActivity() {
             images = url
         var position = intent.getIntExtra("position",0)
 
-        val player = ExoPlayerFactory.newSimpleInstance(this)
+       /* val player = ExoPlayerFactory.newSimpleInstance(this)
         playerView.player = player
         // Produces DataSource instances through which media data is loaded.
         val dataSourceFactory = DefaultDataSourceFactory(this,
@@ -41,12 +41,11 @@ class FullScreenImageActivity : AppCompatActivity() {
                 .createMediaSource(uri)
 // Prepare the player with the source.
        player.prepare(videoSource)
-        player.playWhenReady = false
-        player.
-       // var  adapter : PagerAdapter = FullscreenImageAdapter(this, images)
+        player.playWhenReady = false*/
+        var  adapter : PagerAdapter = FullscreenImageAdapter(this, images)
 
-        //viewPager.adapter= adapter
-//        viewPager.currentItem = position
+        viewPager.adapter= adapter
+    viewPager.currentItem = position
       //  Glide.with(this).load(url)
         //         .into(fullScreenImageView)
 

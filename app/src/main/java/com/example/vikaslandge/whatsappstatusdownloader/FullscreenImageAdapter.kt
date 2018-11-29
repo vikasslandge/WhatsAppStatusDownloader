@@ -44,7 +44,6 @@ class FullscreenImageAdapter :PagerAdapter{
         return images.size
 
     }
-
       override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
             var image : PhotoView

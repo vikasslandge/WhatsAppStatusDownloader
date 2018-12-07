@@ -25,7 +25,7 @@ class FullScreenImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.exoplayer)
-       //val fullScreenImageView = findViewById<View>(R.id.fullScreenImageView) as ImageView
+                ////val fullScreenImageView = findViewById<View>(R.id.fullScreenImageView) as ImageView
        var url = getIntent().getStringArrayListExtra("image_url");
             images = url
         var position = intent.getIntExtra("position",0)

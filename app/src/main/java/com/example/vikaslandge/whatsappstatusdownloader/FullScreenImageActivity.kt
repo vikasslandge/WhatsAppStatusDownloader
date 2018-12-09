@@ -39,7 +39,7 @@ class FullScreenImageActivity : AppCompatActivity() {
         var uri = Uri.parse("/sdcard/Pictures/ urvashi.mp4")
         val videoSource = ExtractorMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(uri)
-// Prepare the player with the source.
+// /Prepare the player with the source.
        player.prepare(videoSource)
         player.playWhenReady = false
         var  adapter : PagerAdapter = FullscreenImageAdapter(this, images)

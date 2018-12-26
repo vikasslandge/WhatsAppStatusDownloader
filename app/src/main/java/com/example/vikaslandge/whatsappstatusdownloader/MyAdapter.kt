@@ -9,6 +9,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import java.io.File
 import android.support.v4.view.ViewPager
+import android.util.Log
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import java.security.AccessController.getContext
 
 
@@ -51,11 +54,16 @@ class MyAdapter: RecyclerView.Adapter<MyHolder> {
         var p1 : Int
         p1 = holder.adapterPosition
         var b = BitmapFactory.decodeFile(f.path)
-        var bmp= ThumbnailUtils.extractThumbnail(b,150,150 )
+        var bmp= ThumbnailUtils.extractThumbnail(b,150,250 )
+
+        //var image = holder!!.cView
         holder.cView!!.setImageBitmap(bmp)
+
+
         holder.cView!!.setOnClickListener {
             var i = Intent( mActivity, FullScreenImageActivity::class.java)
             i.putExtra("image_url",list)
+            //Log.e("Url", list.toString())
             i.putExtra("position",p1)
                 mActivity!!.startActivity(i)
 

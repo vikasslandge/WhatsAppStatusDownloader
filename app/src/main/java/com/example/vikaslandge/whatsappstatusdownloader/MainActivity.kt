@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         if(!file!!.exists()){
 
-            path="storage/emulated/0/Pictures/"//WhatsApp/Media/.statuses/"
+            path="storage/emulated/0/WhatsApp/Media/.statuses/"
             file= File(path)
 
         }

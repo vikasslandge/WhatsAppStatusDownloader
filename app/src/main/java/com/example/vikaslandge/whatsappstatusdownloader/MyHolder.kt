@@ -12,7 +12,7 @@ class MyHolder: RecyclerView.ViewHolder {
     var name: TextView? = null
     var size:TextView?  = null
     constructor(v: View) : super(v) {
-        cView = v.findViewById(R.id.cview)
+        cView = v.findViewById(R.id.cView)
         del = v.findViewById(R.id.del)
         name = v.findViewById(R.id.name)
         size = v.findViewById(R.id.size)
